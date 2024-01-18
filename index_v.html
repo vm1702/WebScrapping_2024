@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <!-- Utilisation de DataTables CDN -->
+    <link rel="stylesheet" type="text/css" href="style_v.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
+    <style>
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<a href="index.html" id="homeButton">Home</a>
+<h1>People Accused of VSS</h1>
+<a href="https://www.instagram.com/safe_devinci"><img src="img/Safe.png" alt=""></a>
+<!-- Utilisation de la balise table avec un id spécifique -->
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Link of the source</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Les données du tableau vont ici -->
+    </tbody>
+</table>
+
+<script>
+    // Utilisation de la fonction loadCSV pour charger le fichier CSV
+    function loadCSV(file, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+        };
+        xhr.open('GET', file, true);
+        xhr.send();
+    }
+
+    // Fonction pour afficher les données dans le tableau DataTable
+    function displayData(csvData) {
+        // Affichons les données CSV dans la console du navigateur
+        console.log('Données CSV :');
+        console.log(csvData);
+
+        var dataArray = $.csv.toArrays(csvData, { onParseValue: $.csv.hooks.castToScalar });
+
+        // Affichons les données transformées dans la console du navigateur
+        console.log('Données transformées :');
+        console.log(dataArray);
+
+        // Initialiser DataTable avec les options
+        var table = $('#myTable').DataTable({
+            data: dataArray.slice(1), // Exclure la première ligne (entête)
+            columnDefs: [
+                { targets: 0, data: 0 }, 
+                { targets: 1, data: 1 }   
+        ]});
+    }
+
+    // Charger les données normalement avec la fonction loadCSV
+    loadCSV('df_vss.csv', displayData);
+</script>
+
+</body>
+</html>

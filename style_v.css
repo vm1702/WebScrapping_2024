@@ -1,0 +1,97 @@
+/* Reset des styles par défaut */
+body, table {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('img/Fond_v.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+h1, .dataTables_info {
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* Styles pour le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffff !important;
+}
+
+td {
+    border: 2px solid #2A3376;
+    padding: 8px;
+    text-align: left;
+    color : #780000;
+    background-color: #FEE2E2 !important;
+}
+
+th {
+    border: 2px solid #2A3376;
+    padding: 8px;
+    text-align: left;
+    color : #FEE2E2;
+    background-color: #780000 !important;
+}
+
+/* Styles pour DataTables pagination */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #ffff !important;
+    border: 1px solid #2A3376 !important;
+    background-color: #ffff !important;
+}
+
+/* Styles pour DataTables search bar */
+.dataTables_wrapper .dataTables_filter input {
+    color: #ffff;
+    border: 1px solid #2A3376;
+    background-color: #ffff;
+}
+
+/* Styles pour DataTables select */
+.dataTables_wrapper .dataTables_length select {
+    color: #0A1357;
+    border: 1px solid #2A3376;
+    background-color: #ffff;
+}
+
+/* Ajoutez la règle de style pour le texte de label dans DataTables_length */
+.dataTables_wrapper .dataTables_length label {
+    color: white;
+}
+
+/* Ajoutez la règle de style pour le texte de label dans DataTables_filter */
+.dataTables_wrapper .dataTables_filter label {
+    color: white;
+}
+
+#homeButton {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #780000;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Ajoutez ces styles dans votre fichier style_m.css */
+.dataTables_info {
+    color: #ffff !important;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto; 
+}
